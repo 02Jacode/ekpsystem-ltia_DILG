@@ -50,49 +50,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     }
+//  separated ang file nato "movdraftUpadate.php sya
+//     // Prepare SQL for updating the file paths
+//     $update_sql = "UPDATE movdraft_file SET ";
+//     foreach ($allowed_columns as $column) {
+//         $update_sql .= "$column = :$column, ";
+//     }
+//     $update_sql = rtrim($update_sql, ', ') . " WHERE user_id = :user_id AND barangay_id = :barangay_id";
 
-    // Prepare SQL for updating the file paths
-    $update_sql = "UPDATE movdraft_file SET ";
-    foreach ($allowed_columns as $column) {
-        $update_sql .= "$column = :$column, ";
-    }
-    $update_sql = rtrim($update_sql, ', ') . " WHERE user_id = :user_id AND barangay_id = :barangay_id";
+//     $update_stmt = $conn->prepare($update_sql);
 
-    $update_stmt = $conn->prepare($update_sql);
+//     // Bind the updated or retained file paths
+//     foreach ($allowed_columns as $column) {
+//         $update_stmt->bindParam(":$column", $row[$column], PDO::PARAM_STR);
+//     }
+//     $update_stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+//     $update_stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
 
-    // Bind the updated or retained file paths
-    foreach ($allowed_columns as $column) {
-        $update_stmt->bindParam(":$column", $row[$column], PDO::PARAM_STR);
-    }
-    $update_stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-    $update_stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
-
-    // Execute the statement and provide feedback
-    if ($update_stmt->execute()) {
-      if ($file_changed) {
-          echo "<script>
-              document.getElementById('feedbackMessage').innerHTML = 'Files updated successfully!';
-              var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
-              feedbackModal.show();
-          </script>";
-      } else {
-          echo "<script>
-              document.getElementById('feedbackMessage').innerHTML = 'No file changes detected.';
-              var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
-              feedbackModal.show();
-          </script>";
-      }
-  } else {
-      echo "<script>
-          document.getElementById('feedbackMessage').innerHTML = 'Error updating files. Please try again.';
-          var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
-          feedbackModal.show();
-      </script>";
-      error_log(print_r($update_stmt->errorInfo(), true));
-      }
-      // Redirect to prevent form resubmission
-header("Location: " . $_SERVER['REQUEST_URI']);
-exit;
+//     // Execute the statement and provide feedback
+//     if ($update_stmt->execute()) {
+//       if ($file_changed) {
+//           echo "<script>
+//               document.getElementById('feedbackMessage').innerHTML = 'Files updated successfully!';
+//               var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+//               feedbackModal.show();
+//           </script>";
+//       } else {
+//           echo "<script>
+//               document.getElementById('feedbackMessage').innerHTML = 'No file changes detected.';
+//               var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+//               feedbackModal.show();
+//           </script>";
+//       }
+//   } else {
+//       echo "<script>
+//           document.getElementById('feedbackMessage').innerHTML = 'Error updating files. Please try again.';
+//           var feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+//           feedbackModal.show();
+//       </script>";
+//       error_log(print_r($update_stmt->errorInfo(), true));
+//       }
+//       // Redirect to prevent form resubmission
+// header("Location: " . $_SERVER['REQUEST_URI']);
+// exit;
 
     }
 ?>  
@@ -142,7 +142,8 @@ exit;
           <div class="container mt-5">
                 <div id="noChangesMessage" class="text-red-500 font-semibold"></div>
                     <h2 class="text-left text-2xl font-semibold">FORM 1 Draft</h2>
-                    <form id="uploadForm" method="post" enctype="multipart/form-data">
+
+           <form id="uploadForm" method="post" enctype="multipart/form-data" action="">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -155,7 +156,7 @@ exit;
                                 <!-- Example for IA_1a -->
                                 <tr>
             <td><b>1. a) Proper Recording of every dispute/complaint</b></td>
-            <td><input type="file" id="IA_1a_pdf_File" name="IA_1a_pdf_File" accept=".pdf" readonly/>
+            <td><input type="file" id="IA_1a_pdf_File" name="IA_1a_pdf_File" accept=".pdf" onchange="validateFileType(this)"/>
             <input type="hidden" name="IA_1a_pdf_File" id="IA_1a_pdf_File" value="<?php echo $row['IA_1a_pdf_File']; ?>">
             </td>
             <td>
@@ -168,7 +169,7 @@ exit;
           </tr>
           <tr>
             <td>b) Sending of Notices and Summons</td>
-            <td><input type="file" id="IA_1b_pdf_File" name="IA_1b_pdf_File" accept=".pdf" readonly/>
+            <td><input type="file" id="IA_1b_pdf_File" name="IA_1b_pdf_File" accept=".pdf" onchange="validateFileType(this)"/>
             <input type="hidden" name="IA_1b_pdf_File" id="IA_1b_pdf_File" value="<?php echo $row['IA_1b_pdf_File']; ?>">
             </td>
             <td>
@@ -698,21 +699,48 @@ exit;
           </table>
           <div class="d-flex justify-content-between">
 
-
-          <button type="button" style="background-color: #000033;"class="btn btn-secondary" data-action="saveDraft.php" onclick="submitForm(this)">Save as Draft</button>
-          <button type="button" style="background-color: #000033;"class="btn btn-primary" data-action="submitForm.php" onclick="submitForm(this)">Submit</button>
-                      
+          <button type="button" style="background-color: #000033;"class="btn btn-secondary" data-action="movdraftUpdate.php" onclick="submitForm(this)">Save as Draft</button>
+          <button type="button" style="background-color: #000033;"class="btn btn-primary" data-action="form2MOVupload_handler.php" onclick="submitForm(this)">Submit</button>       
           <!-- <input type="Submit" name="update" value="Update" style="background-color: #000033;" class="btn btn-dark mt-3" />
           <input type="Submit" name="Submit" value="Submit" style="background-color: #000033;" class="btn btn-dark mt-3" /> -->
         </div>
 
     </form>
     <script>
-        function submitForm(button) {
-            const form = document.getElementById('uploadForm');
-            form.action = button.getAttribute('data-action');
-            form.submit();
+        function checkInputs() {
+          const fileInputs = document.querySelectorAll("#uploadForm input[type='file'], input[type='hidden']");
+    
+    for (let input of fileInputs) {
+        // Check if the file input is empty or the hidden input has no value
+        if (input.type === 'file' && input.value === "") {
+            return false; // If any file input is empty, return false
         }
+        if (input.type === 'hidden' && input.value === "") {
+            return false; // If any hidden input is empty, return false
+        }
+    }
+        return true; // All inputs have values
+    }
+
+    function submitForm(button) {
+        const action = button.getAttribute('data-action');
+        
+        // Apply checks and confirmation only for the "Save as Draft" button
+        if (action === "form2MOVupload_handler.php") {
+            if (!checkInputs()) {
+                alert("Please verify that all required files are uploaded before submitting. Ensure each criteria has the necessary files attached.");
+                return; // Stop form submission if not all inputs are filled
+            }
+            const confirmation = confirm("I Confirm that all the Criteria is correct.");
+            if (!confirmation) {
+                return; // Stop submission if the user cancels
+            }
+        }
+
+        const form = document.getElementById('uploadForm');
+        form.action = action;
+        form.submit();
+    }
     </script>
 <!-- Main modal -->
 <div id="large-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">

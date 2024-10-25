@@ -194,7 +194,7 @@ $(document).ready(function () {
                     if (data[fileKey]) {
                         var filePath = 'movfolder/' + data[fileKey];
                         $('.view-pdf[data-type="' + type + '"]').attr('data-file', filePath).show();
-                        fileColumn.html('<button type="button" class="btn btn-primary view-pdf" data-type="' + type + '" data-file="' + filePath + '">View</button>'); // Add view button to the file column
+                        fileColumn.html('<button type="button" style="background-color: #00008B;" class="btn btn-primary view-pdf" data-type="' + type + '" data-file="' + filePath + '">View</button>'); // Add view button to the file column
                     } else {
                         fileColumn.html('<div class="alert alert-warning mb-0">No uploaded file</div>');
                     }

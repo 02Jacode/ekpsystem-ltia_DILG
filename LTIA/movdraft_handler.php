@@ -6,7 +6,7 @@ $userID = $_SESSION['user_id'] ?? '';
 $barangay_id = $_SESSION['barangay_id'] ?? '';
 
 // Check if the barangay has already uploaded files
-$check_query = "SELECT COUNT(*) FROM mov WHERE barangay_id = :barangay_id";
+$check_query = "SELECT COUNT(*) FROM movdraft_file WHERE barangay_id = :barangay_id";
 $check_stmt = $conn->prepare($check_query);
 $check_stmt->bindParam(':barangay_id', $barangay_id, PDO::PARAM_INT);
 $check_stmt->execute();
