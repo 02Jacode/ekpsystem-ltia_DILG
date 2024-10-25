@@ -131,7 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <tr>
                                     <th>CRITERIA</th>
                                     <th>Means Of Verification</th>
-                                    <th>File</th>
                                     <th>Rate</th>
                                     <th>Remarks</th>
                                 </tr>
@@ -140,14 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <!-- Example for IA_1a -->
                                 <tr>
             <td><b>1. a) Proper Recording of every dispute/complaint</b></td>
-            <td><input type="file" id="IA_1a_pdf_File" name="IA_1a_pdf_File" accept=".pdf" readonly/>
-            <input type="hidden" name="IA_1a_pdf_File" id="IA_1a_pdf_File" value="<?php echo $row['IA_1a_pdf_File']; ?>">
-            </td>
             <td>
               <?php if (!empty($row['IA_1a_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1a_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -155,14 +151,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </tr>
           <tr>
             <td>b) Sending of Notices and Summons</td>
-            <td><input type="file" id="IA_1b_pdf_File" name="IA_1b_pdf_File" accept=".pdf" readonly/>
-            <input type="hidden" name="IA_1b_pdf_File" id="IA_1b_pdf_File" value="<?php echo $row['IA_1b_pdf_File']; ?>">
-            </td>
             <td>
               <?php if (!empty($row['IA_1b_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1b_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -177,14 +170,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
                <tr>
                 <td>a) Mediation (within 15 days from initial confrontation with the Lupon Chairman)</td>
-                <td><input type="file" id="IA_2a_pdf_File" name="IA_2a_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IA_2a_pdf_File" id="IA_2a_pdf_File" value="<?php echo $row['IA_2a_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IA_2a_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2a_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -192,9 +182,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>b) Conciliation (15 days from initial confrontation with the Pangkat)</td>
-                <td><input type="file" id="IA_2b_pdf_File" name="IA_2b_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IA_2b_pdf_File" id="IA_2b_pdf_File" value="<?php echo $row['IA_2b_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IA_2b_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2b_pdf_File']; ?>">View</button>
@@ -207,14 +194,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>c) Conciliation (15 days from initial confrontation with the Pangkat)</td>
-                <td><input type="file" id="IA_2c_pdf_File" name="IA_2c_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IA_2c_pdf_File" id="IA_2c_pdf_File" value="<?php echo $row['IA_2c_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IA_2c_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2c_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -222,9 +206,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>d) Arbitration (within 10 days from the date of the agreement to arbitrate)</td>
-                <td><input type="file" id="IA_2d_pdf_File" name="IA_2d_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IA_2d_pdf_File" id="IA_2d_pdf_File" value="<?php echo $row['IA_2d_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IA_2d_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2d_pdf_File']; ?>">View</button>
@@ -237,14 +218,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>e) Conciliation beyond 46 days but not more than 60 days on a clearly meritorious case</td>
-                <td><input type="file" id="IA_2e_pdf_File" name="IA_2e_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IA_2e_pdf_File" id="IA_2e_pdf_File" value="<?php echo $row['IA_2e_pdf_File']; ?>">
-            </td>
-                <td>
+             <td>
                 <?php if (!empty($row['IA_2e_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2e_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -255,25 +233,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td><b>1. Record of Cases </b></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
               <tr>
                 <td>For Cities - computer database with searchable case information</td>
-                <td><input type="file" id="IB_1forcities_pdf_File" name="IB_1forcities_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_1forcities_pdf_File" id="IB_1forcities_pdf_File" value="<?php echo $row['IB_1forcities_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IB_1forcities_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -284,18 +257,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
               <tr>
                 <td>a. Manual Records</td>
-                <td><input type="file" id="IB_1aformuni_pdf_File" name="IB_1aformuni_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_1aformuni_pdf_File" id="IB_1aformuni_pdf_File" value="<?php echo $row['IB_1aformuni_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IB_1aformuni_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1aformuni_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -303,14 +272,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>b. Digital Record Filing</td>
-                <td><input type="file" id="IB_1bformuni_pdf_File" name="IB_1bformuni_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_1bformuni_pdf_File" id="IB_1bformuni_pdf_File" value="<?php echo $row['IB_1bformuni_pdf_File']; ?>">
-            </td>
                 <td>
                   <?php if (!empty($row['IB_1bformuni_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1bformuni_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -318,14 +284,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>2. Copies of Minutes of Lupon meetings with attendance sheets and notices</td>
-                <td><input type="file" id="IB_2_pdf_File" name="IB_2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_2_pdf_File" id="IB_2_pdf_File" value="<?php echo $row['IB_2_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IB_2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -333,14 +296,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>3. Copies of reports submitted to the Court and to the DILG on file</td>
-                <td><input type="file" id="IB_3_pdf_File" name="IB_3_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_3_pdf_File" id="IB_3_pdf_File" value="<?php echo $row['IB_3_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IB_3_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_3_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -348,14 +308,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>4. All records are kept on file in a secured filing cabinet(s)</td>
-                <td><input type="file" id="IB_4_pdf_File" name="IB_4_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IB_4_pdf_File" id="IB_4_pdf_File" value="<?php echo $row['IB_4_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IB_4_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_4_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -366,18 +323,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td>1. <b>To the Court:</b> Submitted/ presented copies of settlement agreement to the Court from the lapse of the ten-day period repudiating the mediation/ conciliation settlement agreement, or within five (5) calendar days from the date of the arbitration award</td>
-                <td><input type="file" id="IC_1_pdf_File" name="IC_1_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IC_1_pdf_File" id="IC_1_pdf_File" value="<?php echo $row['IC_1_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IC_1_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_1_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -385,14 +338,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>2. To the DILG (Quarterly)</td>
-                <td><input type="file" id="IC_2_pdf_File" name="IC_2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IC_2_pdf_File" id="IC_2_pdf_File" value="<?php echo $row['IC_2_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IC_2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -400,21 +350,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <th>D. Conduct of monthly meetings for administration of the Katarungang Pambarangay (KP)</th>
-                <th></th>
-                <th></th>
+                  <th></th>
                 <th></th>
                 <th></th>
               </tr>
               <tr>
                 <td>1. Notice of Meeting</td>
-                <td><input type="file" id="ID_1_pdf_File" name="ID_1_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="ID_1_pdf_File" id="ID_1_pdf_File" value="<?php echo $row['ID_1_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['ID_1_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_1_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -422,14 +368,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>2. Minutes of the Meeting</td>
-                <td><input type="file" id="ID_2_pdf_File" name="ID_2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="ID_2_pdf_File" id="ID_2_pdf_File" value="<?php echo $row['ID_2_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['ID_2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -440,18 +383,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td>A. Quantity of settled cases against filed</td>
-                <td><input type="file" id="IIA_pdf_File" name="IIA_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIA_pdf_File" id="IIA_pdf_File" value="<?php echo $row['IIA_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIA_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIA_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -462,18 +401,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
               <tr>
                 <td>1. Zero cases repudiated</td>
-                <td><input type="file" id="IIB_1_pdf_File" name="IIB_1_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIB_1_pdf_File" id="IIB_1_pdf_File" value="<?php echo $row['IIB_1_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIB_1_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_1_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -481,14 +416,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>2. Non-recurrence of cases settled</td>
-                <td><input type="file" id="IIB_2_pdf_File" name="IIB_2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIB_2_pdf_File" id="IIB_2_pdf_File" value="<?php echo $row['IIB_2_pdf_File']; ?>">
-            </td>
+
                 <td>
                 <?php if (!empty($row['IIB_2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -496,14 +429,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>C. At least 80% compliance with the terms of settlement or award after the cases have been settled</td>
-                <td><input type="file" id="IIC_pdf_File" name="IIC_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIC_pdf_File" id="IIC_pdf_File" value="<?php echo $row['IIC_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIC_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIC_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -514,18 +444,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td>A. Settlement Technique utilized by the Lupon</td>
-                <td><input type="file" id="IIIA_pdf_File" name="IIIA_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIA_pdf_File" id="IIIA_pdf_File" value="<?php echo $row['IIIA_pdf_File']; ?>">
-            </td>
+
                 <td>
                 <?php if (!empty($row['IIIA_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIA_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -533,14 +460,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>B. Coordination with Concerned Agencies relating to disputes filed (PNP, DSWD, DILG, DAR, DENR, Office of the Prosecutor, Court, DOJ, CHR, etc.)</td>
-                <td><input type="file" id="IIIB_pdf_File" name="IIIB_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIB_pdf_File" id="IIIB_pdf_File" value="<?php echo $row['IIIB_pdf_File']; ?>">
-            </td>
+
                 <td>
                 <?php if (!empty($row['IIIB_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIB_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -548,7 +473,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>C. Sustained information drive to promote Katarungang Pambarangay</td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -563,14 +487,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>IEC materials developed</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_1forcities_pdf_File" name="IIIC_1forcities_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_1forcities_pdf_File" id="IIIC_1forcities_pdf_File" value="<?php echo $row['IIIC_1forcities_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -582,14 +503,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>IEC activities conducted</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_1forcities2_pdf_File" name="IIIC_1forcities2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_1forcities2_pdf_File" id="IIIC_1forcities2_pdf_File" value="<?php echo $row['IIIC_1forcities2_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -601,14 +519,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>Innovative Campaign Strategy</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_1forcities3_pdf_File" name="IIIC_1forcities3_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_1forcities3_pdf_File" id="IIIC_1forcities3_pdf_File" value="<?php echo $row['IIIC_1forcities3_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities3_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities3_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -619,7 +534,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
               <tr>
                 <td>
@@ -627,14 +541,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>IEC materials developed</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_2formuni1_pdf_File" name="IIIC_2formuni1_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_2formuni1_pdf_File" id="IIIC_2formuni1_pdf_File" value="<?php echo $row['IIIC_2formuni1_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni1_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni1_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -646,14 +557,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>IEC activities conducted</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_2formuni2_pdf_File" name="IIIC_2formuni2_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_2formuni2_pdf_File" id="IIIC_2formuni2_pdf_File" value="<?php echo $row['IIIC_2formuni2_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni2_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni2_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -665,14 +573,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li>Innovative Campaign Strategy</li>
                   </ul>
                 </td>
-                <td><input type="file" id="IIIC_2formuni3_pdf_File" name="IIIC_2formuni3_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIIC_2formuni3_pdf_File" id="IIIC_2formuni3_pdf_File" value="<?php echo $row['IIIC_2formuni3_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni3_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni3_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -681,14 +586,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <tr>
                 <td>D. KP Training or seminar within the assessment period<br />
                   Organized skills training participated by the Lupong Tagapamayapa</td>
-                <td><input type="file" id="IIID_pdf_File" name="IIID_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IIID_pdf_File" id="IIID_pdf_File" value="<?php echo $row['IIID_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IIID_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIID_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -699,25 +601,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td><b>Building structure or space:</b></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
               <tr>
                 <td>For Cities - the office or space should be exclusive for KP matters</td>
-                <td><input type="file" id="IV_forcities_pdf_File" name="IV_forcities_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IV_forcities_pdf_File" id="IV_forcities_pdf_File" value="<?php echo $row['IV_forcities_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IV_forcities_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -725,14 +622,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tr>
               <tr>
                 <td>For Municipalities - KP office or space may be shared or used for other Barangay matters.</td>
-                <td><input type="file" id="IV_muni_pdf_File" name="IV_muni_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="IV_muni_pdf_File" id="IV_muni_pdf_File" value="<?php echo $row['IV_muni_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['IV_muni_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_muni_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -743,18 +637,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               <tr>
                 <td>1. From City, Municipal, Provincial or NGAs</td>
-                <td><input type="file" id="V_1_pdf_File" name="V_1_pdf_File" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="V_1_pdf_File" id="V_1_pdf_File" value="<?php echo $row['V_1_pdf_File']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['V_1_pdf_File'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['V_1_pdf_File']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
@@ -762,25 +652,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>3 From People's Organizations, NGOs or Private Sector</td>
-                <td><input type="file" id="3peoplesorg" name="threepeoplesorg" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="threepeoplesorg" id="threepeoplesorg" value="<?php echo $row['threepeoplesorg']; ?>">
-            </td>
                 <td>
                 <?php if (!empty($row['threepeoplesorg'])) : ?>
                 <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['threepeoplesorg']; ?>">View</button>
               <?php else : ?>
-                <span>No file uploaded</span>
+                <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
             <td>rate here</td>
             <td>this is remark</td>
               </tr>
-
               <tr>
               <th>Total here</th>
                 <td></td>
-                <td>
-                
+                <td>            
             </td>
             <td>Total here</td>
             <td></td>

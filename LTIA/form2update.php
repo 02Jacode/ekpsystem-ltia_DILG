@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Prepare the SQL update query
-  $update_query = "UPDATE mov SET 
+  $update_query = "UPDATE movdraft_file SET 
     IA_1a_pdf_File = :IA_1a_pdf_File,
     IA_1b_pdf_File = :IA_1b_pdf_File,
     IA_2a_pdf_File = :IA_2a_pdf_File,

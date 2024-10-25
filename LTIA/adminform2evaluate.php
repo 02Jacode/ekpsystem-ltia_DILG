@@ -119,6 +119,33 @@ try {
 
  <script>
 $(document).ready(function () {
+   function updateInputFields() {
+        const selectedBarangay = document.getElementById('barangay_select').value;
+        const fileColumns = document.querySelectorAll('.file-column');
+
+        fileColumns.forEach(function (column) {
+            const inputRate = column.parentElement.querySelector('input[type="number"]');
+            const textareaRemark = column.parentElement.querySelector('textarea');
+            if (!selectedBarangay) {
+                // Disable input fields when no barangay is selected
+                inputRate.disabled = true;
+                textareaRemark.disabled = true;
+                column.querySelector('span').textContent = 'Select barangay';
+            } else {
+                // Enable input fields when a barangay is selected
+                inputRate.disabled = false;
+                textareaRemark.disabled = false;
+                column.querySelector('span').textContent = ''; // Clear the "Select barangay" message
+            }
+        });
+    }
+
+    // Add event listener to the barangay select dropdown
+    document.getElementById('barangay_select').addEventListener('change', updateInputFields);
+
+    // On page load, check if a barangay is selected
+    window.onload = updateInputFields;
+
     // Handle barangay selection
     $('#barangay_select').on('change', function () {
         var selectedBarangayName = $(this).val();
@@ -296,6 +323,8 @@ $(document).ready(function () {
         $('#pdfViewer').attr('src', ''); // Clear the iframe src when modal is closed
     });
 });
+
+
 
 </script>
 
@@ -1002,7 +1031,7 @@ $(document).ready(function () {
               </tr>
             </tbody>
           </table>
-      <input type="submit" value="Okay" class="btn btn-dark mt-3" />
+      <input type="submit" value="Submit" class="btn btn-dark mt-3" />
     </form>
         </div>
       </div>
