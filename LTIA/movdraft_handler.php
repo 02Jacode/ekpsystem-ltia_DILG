@@ -165,14 +165,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $already_uploaded == 0) {
         move_uploaded_file($fileTMP, $fileDestination);
       }
     }
-    echo "<script>alert('Files uploaded successfully!'); 
+    echo "<script>alert('Saved!'); 
     window.location.href='form2draftmov.php';</script>";
     exit();
   } else {
     echo "<script>alert('Error inserting into database.');</script>";
   }
 } else {
-  echo "<script>alert('Files already uploaded for this barangay.');
+  echo "<script>alert('Files already uploaded, Check Draft.');
   window.location.href='form2draftmov.php';</script>";
 }
 

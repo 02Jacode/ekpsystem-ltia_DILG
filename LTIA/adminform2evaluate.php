@@ -204,7 +204,7 @@ $(document).ready(function () {
                 if (data.rates) {
                     console.log('Rates:', data.rates);
                     // Set rates in input fields, adjust names to match your input field names
-                    $('input[name="IA_1a_pdf_rate"]').val(data.rates.IA_1a_pdf_rate);
+                    $('input[name="IA_1a_pdf_rate"]').val(data.rates.IA_1a_pdf_rate); 
                     $('input[name="IA_1b_pdf_rate"]').val(data.rates.IA_1b_pdf_rate);
                     $('input[name="IA_2a_pdf_rate"]').val(data.rates.IA_2a_pdf_rate);
                     $('input[name="IA_2b_pdf_rate"]').val(data.rates.IA_2b_pdf_rate);

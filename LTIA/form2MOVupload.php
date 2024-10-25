@@ -2,14 +2,26 @@
 session_start();
 include '../connection.php';
 
-
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
   header("Location: login.php");
   exit;
 }
 
+// Define user and barangay ID from session
+$userID = $_SESSION['user_id'];
+$barangayID = $_SESSION['barangay_id'] ?? '';
 
+// Query to check if the user's barangay has a submission
+$submissionExists = false;
+$checkQuery = "SELECT COUNT(*) FROM movdraft_file WHERE barangay_id = :barangay_id";
+$checkStmt = $conn->prepare($checkQuery);
+$checkStmt->bindParam(':barangay_id', $barangayID, PDO::PARAM_INT);
+$checkStmt->execute();
+if ($checkStmt->fetchColumn() > 0) {
+    $submissionExists = true;
+}
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -38,13 +50,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                            <h1 class="text-xl font-bold ml-4">Lupong Tagapamayapa Incentives Award (LTIA) <?php echo date('Y'); ?></h1>
               </div>
                         <div class="menu">
-                            <ul class="flex space-x-4">
-                            <li>
-                            <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2draftmov.php';" style="margin-left: 0;">
-                    <i class="ti ti-file-upload mr-2"></i> <!-- Icon -->
-                    Draft
-                  </button>
-                        </li>             
+                            <ul class="flex space-x-4">      
                         <li>
                         <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='LTIAdashboard.php';" style="margin-left: 0;">
                     <i class="ti ti-arrow-left-dashed mr-2"></i>
@@ -54,6 +60,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                         </div>
                     </div>
       <h2 class="text-left text-2xl font-semibold">FORM 1</h2>
+                            <?php if ($submissionExists) : ?>
+                              <h1><i>You have already saved a </i></h1>
+                                <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2draftmov.php';" style="margin-left: 0;">
+                                <!-- <i class="ti ti-file-upload mr-2"></i> Icon -->
+                                Draft
+                            </button>
+                        <?php endif; ?>
+                         
       <h2 class="custom-h2"> </h2>
 
       <form method="post" action="movdraft_handler.php" enctype="multipart/form-data">
@@ -298,7 +312,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
             </tbody>
           </table>
         
-          <input type="submit" value="Submit" class="btn btn-dark btn-block mt-5" style="height: 50px; width: 50%; background-color: #000000; color: #ffffff;" />
+          <input type="submit" value="Save" class="btn btn-dark btn-block mt-5" style="height: 50px; width: 50%; background-color: #000000; color: #ffffff;" />
           
         </form>
       <footer class="relative">

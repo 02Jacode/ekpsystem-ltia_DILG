@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="menu">
                         <ul class="flex space-x-4">
                             <li>
-                            <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2MOVupload.php';" style="margin-left: 0;">
+                            <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='LTIAdashboard.php';" style="margin-left: 0;">
                           <i class="ti ti-arrow-narrow-left-dashed mr-2"></i>
                           Back
                           </button>
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <td><b>1. a) Proper Recording of every dispute/complaint</b></td>
             <td>
               <?php if (!empty($row['IA_1a_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1a_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1a_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <td>b) Sending of Notices and Summons</td>
             <td>
               <?php if (!empty($row['IA_1b_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1b_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_1b_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>a) Mediation (within 15 days from initial confrontation with the Lupon Chairman)</td>
                 <td>
                 <?php if (!empty($row['IA_2a_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2a_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2a_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>b) Conciliation (15 days from initial confrontation with the Pangkat)</td>
                 <td>
                 <?php if (!empty($row['IA_2b_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2b_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2b_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No file uploaded</span>
               <?php endif; ?>
@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>c) Conciliation (15 days from initial confrontation with the Pangkat)</td>
                 <td>
                 <?php if (!empty($row['IA_2c_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2c_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2c_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>d) Arbitration (within 10 days from the date of the agreement to arbitrate)</td>
                 <td>
                 <?php if (!empty($row['IA_2d_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2d_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2d_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No file uploaded</span>
               <?php endif; ?>
@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>e) Conciliation beyond 46 days but not more than 60 days on a clearly meritorious case</td>
              <td>
                 <?php if (!empty($row['IA_2e_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2e_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IA_2e_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -244,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>For Cities - computer database with searchable case information</td>
                 <td>
                 <?php if (!empty($row['IB_1forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1forcities_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>a. Manual Records</td>
                 <td>
                 <?php if (!empty($row['IB_1aformuni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1aformuni_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1aformuni_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -286,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>2. Copies of Minutes of Lupon meetings with attendance sheets and notices</td>
                 <td>
                 <?php if (!empty($row['IB_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -298,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>3. Copies of reports submitted to the Court and to the DILG on file</td>
                 <td>
                 <?php if (!empty($row['IB_3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_3_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_3_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -310,7 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>4. All records are kept on file in a secured filing cabinet(s)</td>
                 <td>
                 <?php if (!empty($row['IB_4_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_4_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_4_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -328,7 +328,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>1. <b>To the Court:</b> Submitted/ presented copies of settlement agreement to the Court from the lapse of the ten-day period repudiating the mediation/ conciliation settlement agreement, or within five (5) calendar days from the date of the arbitration award</td>
                 <td>
                 <?php if (!empty($row['IC_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_1_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_1_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -340,7 +340,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>2. To the DILG (Quarterly)</td>
                 <td>
                 <?php if (!empty($row['IC_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IC_2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -358,7 +358,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>1. Notice of Meeting</td>
                 <td>
                 <?php if (!empty($row['ID_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_1_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_1_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -370,7 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>2. Minutes of the Meeting</td>
                 <td>
                 <?php if (!empty($row['ID_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['ID_2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -388,7 +388,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>A. Quantity of settled cases against filed</td>
                 <td>
                 <?php if (!empty($row['IIA_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIA_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIA_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -406,7 +406,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>1. Zero cases repudiated</td>
                 <td>
                 <?php if (!empty($row['IIB_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_1_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_1_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -419,7 +419,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <td>
                 <?php if (!empty($row['IIB_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIB_2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -431,7 +431,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>C. At least 80% compliance with the terms of settlement or award after the cases have been settled</td>
                 <td>
                 <?php if (!empty($row['IIC_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIC_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIC_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -450,7 +450,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <td>
                 <?php if (!empty($row['IIIA_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIA_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIA_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -463,7 +463,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <td>
                 <?php if (!empty($row['IIIB_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIB_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIB_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -489,7 +489,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -505,7 +505,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -521,7 +521,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities3_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_1forcities3_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -543,7 +543,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni1_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni1_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -559,7 +559,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni2_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni2_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -575,7 +575,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni3_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIIC_2formuni3_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -588,7 +588,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   Organized skills training participated by the Lupong Tagapamayapa</td>
                 <td>
                 <?php if (!empty($row['IIID_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIID_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IIID_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -612,7 +612,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>For Cities - the office or space should be exclusive for KP matters</td>
                 <td>
                 <?php if (!empty($row['IV_forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_forcities_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_forcities_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -624,7 +624,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>For Municipalities - KP office or space may be shared or used for other Barangay matters.</td>
                 <td>
                 <?php if (!empty($row['IV_muni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_muni_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IV_muni_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -642,7 +642,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>1. From City, Municipal, Provincial or NGAs</td>
                 <td>
                 <?php if (!empty($row['V_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['V_1_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['V_1_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
@@ -654,7 +654,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>3 From People's Organizations, NGOs or Private Sector</td>
                 <td>
                 <?php if (!empty($row['threepeoplesorg'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['threepeoplesorg']; ?>">View</button>
+                <button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['threepeoplesorg']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>

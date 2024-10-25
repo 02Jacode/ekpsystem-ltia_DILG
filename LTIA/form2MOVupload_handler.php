@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $already_uploaded == 0) {
     $randomString = substr(md5(mt_rand()), 0, 8); // Adding a random string for uniqueness
     return $filename . "_" . $timestamp . "_" . $randomString . "." . $extension;
   }
-  
+
   // Define the list of files to process
   $files = [
     'IA_1a_pdf_File', 'IA_1b_pdf_File', 'IA_2a_pdf_File', 'IA_2b_pdf_File',
@@ -65,27 +65,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $already_uploaded == 0) {
     $stmt->bindParam(":$file", $fileNames[$file], PDO::PARAM_STR);
   }
 
-  // Execute the query and handle file uploads
-  if ($stmt->execute()) {
-    foreach ($files as $file) {
-      if (isset($fileNames[$file]) && $fileNames[$file] !== null) {
-        $fileTMP = $_FILES[$file]['tmp_name'];
-        $fileDestination = 'movfolder/' . $fileNames[$file];
-        if (!move_uploaded_file($fileTMP, $fileDestination)) {
-          error_log("Failed to move uploaded file for $file.");
+ if ($stmt->execute()) {
+        // Move uploaded files to the directory
+        foreach ($files as $file) {
+            if (isset($fileNames[$file]) && $fileNames[$file] !== null) {
+                $fileTMP = $_FILES[$file]['tmp_name'];
+                $fileDestination = 'movfolder/' . $fileNames[$file];
+                if (!move_uploaded_file($fileTMP, $fileDestination)) {
+                    error_log("Failed to move uploaded file for $file.");
+                }
+            }
         }
-      }
+        $_SESSION['modal_message'] = 'Files Submitted successfully!';
+    } else {
+        $_SESSION['modal_message'] = 'Error inserting into the database.';
     }
-    echo "<script>alert('Files uploaded successfully!'); 
-    window.location.href='form2draftmov.php';</script>";
-    exit();
-  } else {
-    error_log("Database insertion failed: " . implode(", ", $stmt->errorInfo()));
-    echo "<script>alert('Error inserting into database.');</script>";
-  }
 } else {
-  echo "<script>alert('Files already uploaded for this barangay.');
-  window.location.href='form2draftmov.php';</script>";
+    $_SESSION['modal_message'] = 'Files already uploaded for this barangay.';
 }
 
+header('Location: form2draftmov.php');
+exit();
 ?>

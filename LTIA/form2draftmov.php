@@ -708,7 +708,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <script>
         function checkInputs() {
-          const fileInputs = document.querySelectorAll("#uploadForm input[type='file'], input[type='hidden']");
+          const fileInputs = document.querySelectorAll("#uploadForm input[type='file']");
     
     for (let input of fileInputs) {
         // Check if the file input is empty or the hidden input has no value
@@ -723,25 +723,105 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     function submitForm(button) {
-        const action = button.getAttribute('data-action');
-        
-        // Apply checks and confirmation only for the "Save as Draft" button
-        if (action === "form2MOVupload_handler.php") {
-            if (!checkInputs()) {
-                alert("Please verify that all required files are uploaded before submitting. Ensure each criteria has the necessary files attached.");
-                return; // Stop form submission if not all inputs are filled
-            }
-            const confirmation = confirm("I Confirm that all the Criteria is correct.");
-            if (!confirmation) {
-                return; // Stop submission if the user cancels
-            }
-        }
+    const action = button.getAttribute('data-action');
 
+    // Only apply checks and confirmation for the "Save as Draft" button
+    if (action === "form2MOVupload_handler.php") {
+        if (!checkInputs()) {
+            $('#alertModal').modal('show'); // Show alert modal if files are missing
+            return; // Stop form submission if not all inputs are filled
+        }
+        
+        // Show the confirmation modal
+        $('#confirmModal').modal('show');
+
+        // Handle confirmation modal's "Confirm" button
+        document.getElementById('confirmSubmit').onclick = function () {
+            const form = document.getElementById('uploadForm');
+            form.action = action;
+            form.submit();
+        };
+    } else {
+        // Directly submit for other actions without checks
         const form = document.getElementById('uploadForm');
         form.action = action;
         form.submit();
     }
+}
     </script>
+<!-- Modal for Alert -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Missing Files</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please verify that all required files are uploaded before submitting. Ensure each criteria has the necessary files attached.
+            </div>
+            <div class="modal-footer">
+                <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2MOVupload.php';" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Confirmation -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                I confirm that all the Criteria is correct.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmSubmit">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Notification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                if (isset($_SESSION['modal_message'])) {
+                    echo htmlspecialchars($_SESSION['modal_message']);
+                    unset($_SESSION['modal_message']); // Clear message after displaying
+                }
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        <?php if (isset($_SESSION['modal_message'])) : ?>
+            $('#messageModal').modal('show');
+        <?php endif; ?>
+    });
+</script>
+
 <!-- Main modal -->
 <div id="large-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-4xl max-h-full">
