@@ -763,7 +763,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Please verify that all required files are uploaded before submitting. Ensure each criteria has the necessary files attached.
             </div>
             <div class="modal-footer">
-                <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2MOVupload.php';" data-dismiss="modal">OK</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2draftmov.php';" data-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
