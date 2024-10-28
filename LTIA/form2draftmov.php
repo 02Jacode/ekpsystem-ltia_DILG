@@ -707,47 +707,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </form>
     <script>
-        function checkInputs() {
-          const fileInputs = document.querySelectorAll("#uploadForm input[type='file']");
-    
+       function checkInputs() {
+    const fileInputs = document.querySelectorAll("#uploadForm input[type='file']");
+
     for (let input of fileInputs) {
-        // Check if the file input is empty or the hidden input has no value
-        if (input.type === 'file' && input.value === "") {
-            return false; // If any file input is empty, return false
-        }
-        if (input.type === 'hidden' && input.value === "") {
-            return false; // If any hidden input is empty, return false
+        const hiddenInput = input.nextElementSibling; // assuming next element is the hidden input
+        if (input.value === "" && hiddenInput.value === "") {
+            return false; // If both file and hidden input are empty, return false
         }
     }
-        return true; // All inputs have values
-    }
+
+    return true; // All inputs are valid
+}
 
     function submitForm(button) {
     const action = button.getAttribute('data-action');
 
-    // Only apply checks and confirmation for the "Save as Draft" button
     if (action === "form2MOVupload_handler.php") {
         if (!checkInputs()) {
-            $('#alertModal').modal('show'); // Show alert modal if files are missing
+            $('#alertModal').modal('show');
             return; // Stop form submission if not all inputs are filled
         }
         
-        // Show the confirmation modal
         $('#confirmModal').modal('show');
-
-        // Handle confirmation modal's "Confirm" button
         document.getElementById('confirmSubmit').onclick = function () {
             const form = document.getElementById('uploadForm');
             form.action = action;
             form.submit();
         };
     } else {
-        // Directly submit for other actions without checks
         const form = document.getElementById('uploadForm');
         form.action = action;
         form.submit();
     }
 }
+
     </script>
 <!-- Modal for Alert -->
 <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">

@@ -274,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td>b. Digital Record Filing</td>
                 <td>
                   <?php if (!empty($row['IB_1bformuni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1bformuni_pdf_File']; ?>">View</button>
+                <button type="button" style="background-color: #000033;"class="btn btn-primary view-pdf" data-file="movfolder/<?php echo $row['IB_1bformuni_pdf_File']; ?>">View</button>
               <?php else : ?>
                 <span>No MOV Submitted</span>
               <?php endif; ?>
