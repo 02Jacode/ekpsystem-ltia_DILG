@@ -743,78 +743,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
     </script>
-<!-- Modal for Alert -->
+<!-- Missing Files Modal -->
 <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Centered the modal -->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="alertModalLabel">Missing Files</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title text-danger" id="alertModalLabel">Missing Files</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Updated close button for Bootstrap 5 -->
             </div>
-            <div class="modal-body">
-                Please verify that all required files are uploaded before submitting. Ensure each criteria has the necessary files attached.
+            <div class="modal-body text-center"> <!-- Centered the content -->
+                <p class="mb-0">Please verify that all required files are uploaded before submitting.</p>
+                <p>Ensure each criteria has the necessary files attached.</p>
             </div>
-            <div class="modal-footer">
-                <button class="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white flex items-center" onclick="location.href='form2draftmov.php';" data-dismiss="modal">OK</button>
+            <div class="modal-footer justify-content-center"> <!-- Centered the footer buttons -->
+                <button class="btn btn-dark" onclick="location.href='form2draftmov.php';" data-bs-dismiss="modal">OK</button> <!-- Updated button style -->
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal for Confirmation -->
+<!-- Confirmation Modal -->
 <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Centered the modal -->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title text-primary" id="confirmModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Updated close button for Bootstrap 5 -->
             </div>
-            <div class="modal-body">
-                I confirm that all the Criteria is correct.
+            <div class="modal-body text-center"> <!-- Centered the content -->
+                <p class="mb-0">I confirm that all the criteria are correct.</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="confirmSubmit">Confirm</button>
+            <div class="modal-footer justify-content-center"> <!-- Centered the footer buttons -->
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" id="confirmSubmit">Confirm</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-dialog">
+<!-- Success Message Modal (displayed after successful submission) -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Centered the modal -->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Notification</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title text-success" id="successModalLabel">Submission Successful</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <?php
-                if (isset($_SESSION['modal_message'])) {
-                    echo htmlspecialchars($_SESSION['modal_message']);
-                    unset($_SESSION['modal_message']); // Clear message after displaying
-                }
-                ?>
+            <div class="modal-body text-center"> <!-- Centered the content -->
+                <p>Your submission has been successfully recorded.</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            <div class="modal-footer justify-content-center"> <!-- Centered the footer buttons -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).ready(function() {
-        <?php if (isset($_SESSION['modal_message'])) : ?>
-            $('#messageModal').modal('show');
-        <?php endif; ?>
-    });
+// Show success modal on confirm
+document.getElementById('confirmSubmit').addEventListener('click', function () {
+    $('#confirmModal').modal('hide');
+    setTimeout(function () {
+        $('#successModal').modal('show');
+    }, 500);
+});
 </script>
+
 
 <!-- Main modal -->
 <div id="large-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
