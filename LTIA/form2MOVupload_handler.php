@@ -48,6 +48,6 @@ try {
     $_SESSION['modal_message'] = 'An error occurred during submission.';
 }
 
-header('Location: form2draftmov.php');
+header('Location: LTIAdashboard.php');
 exit();
 ?>

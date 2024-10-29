@@ -719,7 +719,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     return true; // All inputs are valid
 }
-
     function submitForm(button) {
     const action = button.getAttribute('data-action');
 
@@ -756,7 +755,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Ensure each criteria has the necessary files attached.</p>
             </div>
             <div class="modal-footer justify-content-center"> <!-- Centered the footer buttons -->
-                <button class="btn btn-dark" onclick="location.href='form2draftmov.php';" data-bs-dismiss="modal">OK</button> <!-- Updated button style -->
+                <button class="btn btn-dark" data-bs-dismiss="modal">OK</button> <!-- Updated button style -->
             </div>
         </div>
     </div>
