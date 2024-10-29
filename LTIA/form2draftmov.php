@@ -160,11 +160,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="hidden" name="IA_1a_pdf_File" id="IA_1a_pdf_File" value="<?php echo $row['IA_1a_pdf_File']; ?>">
             </td>
             <td>
-              <?php if (!empty($row['IA_1a_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_1a_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <?php if (!empty($row['IA_1a_pdf_File'])) : ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_1a_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_1a_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
           </tr>
           <tr>
@@ -173,11 +173,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="hidden" name="IA_1b_pdf_File" id="IA_1b_pdf_File" value="<?php echo $row['IA_1b_pdf_File']; ?>">
             </td>
             <td>
-              <?php if (!empty($row['IA_1b_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_1b_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <?php if (!empty($row['IA_1b_pdf_File'])) : ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_1b_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_1b_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
           </tr>
           <tr>
@@ -192,10 +192,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IA_2a_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_2a_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_2a_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_2a_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -205,10 +205,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IA_2b_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_2b_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_2b_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_2b_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -218,10 +218,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IA_2c_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_2c_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_2c_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_2c_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -231,10 +231,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IA_2d_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IA_2d_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_2d_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_2d_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -244,10 +244,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IA_2e_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf"style="background-color: #00008B;"data-file="movfolder/<?php echo $row['IA_2e_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IA_2e_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IA_2e_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -267,10 +267,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IB_1forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_1forcities_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_1forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_1forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -285,10 +285,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IB_1aformuni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_1aformuni_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_1aformuni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_1aformuni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -297,11 +297,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="IB_1bformuni_pdf_File" id="IB_1bformuni_pdf_File" value="<?php echo $row['IB_1bformuni_pdf_File']; ?>">
             </td>
                 <td>
-                  <?php if (!empty($row['IB_1bformuni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_1bformuni_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+                <?php if (!empty($row['IB_1bformuni_pdf_File'])) : ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_1bformuni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_1bformuni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -311,10 +311,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IB_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -324,10 +324,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IB_3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_3_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -337,10 +337,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IB_4_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IB_4_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IB_4_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IB_4_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -355,10 +355,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IC_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IC_1_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IC_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IC_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -368,10 +368,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IC_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IC_2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IC_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IC_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -386,10 +386,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['ID_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['ID_1_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['ID_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['ID_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -399,10 +399,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['ID_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['ID_2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['ID_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['ID_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -417,10 +417,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIA_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIA_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIA_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIA_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -435,10 +435,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIB_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIB_1_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIB_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIB_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -448,10 +448,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIB_2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIB_2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIB_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIB_2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -461,10 +461,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIC_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIC_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIC_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIC_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -479,10 +479,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIA_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIA_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIA_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIA_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -492,10 +492,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIB_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIB_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIB_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIB_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -518,10 +518,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_1forcities_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_1forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_1forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -535,10 +535,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_1forcities2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_1forcities2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_1forcities2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -552,10 +552,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_1forcities3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_1forcities3_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_1forcities3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_1forcities3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -574,10 +574,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_2formuni1_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_2formuni1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_2formuni1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -591,10 +591,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni2_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_2formuni2_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_2formuni2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_2formuni2_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -608,10 +608,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIIC_2formuni3_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIIC_2formuni3_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIIC_2formuni3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIIC_2formuni3_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -622,10 +622,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IIID_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IIID_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IIID_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IIID_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -645,10 +645,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IV_forcities_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IV_forcities_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IV_forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IV_forcities_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
             </tr>
               <tr>
@@ -658,10 +658,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['IV_muni_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['IV_muni_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['IV_muni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['IV_muni_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -676,10 +676,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['V_1_pdf_File'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['V_1_pdf_File']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['V_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['V_1_pdf_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
               <tr>
@@ -689,10 +689,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
                 <td>
                 <?php if (!empty($row['threepeoplesorg'])) : ?>
-                <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo $row['threepeoplesorg']; ?>">View</button>
-              <?php else : ?>
-                <span>No file uploaded</span>
-              <?php endif; ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['threepeoplesorg'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['threepeoplesorg'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+            <?php else : ?>
+              <span>No file uploaded</span>
+            <?php endif; ?>
             </td>
               </tr>
             </tbody>
