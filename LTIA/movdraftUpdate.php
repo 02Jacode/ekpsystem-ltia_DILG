@@ -27,11 +27,11 @@ $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
 $stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
-
 $file_changed = false;
 $upload_dir = 'movfolder/';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Process each file
     foreach ($allowed_columns as $column) {
         if (isset($_FILES[$column]) && $_FILES[$column]['error'] === UPLOAD_ERR_OK) {
             $file_name = time() . '_' . basename($_FILES[$column]['name']);
@@ -48,12 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $update_sql = "UPDATE movdraft_file SET ";
-    foreach ($allowed_columns as $column) {
-        $update_sql .= "$column = :$column, ";
-    }
-    $update_sql = rtrim($update_sql, ', ') . " WHERE user_id = :user_id AND barangay_id = :barangay_id";
-    
+    $update_sql = "UPDATE movdraft_file SET " . implode(", ", array_map(fn($col) => "$col = :$col", $allowed_columns)) . " WHERE user_id = :user_id AND barangay_id = :barangay_id";
     $update_stmt = $conn->prepare($update_sql);
     foreach ($allowed_columns as $column) {
         $update_stmt->bindParam(":$column", $row[$column], PDO::PARAM_STR);
@@ -62,15 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update_stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
 
     if ($update_stmt->execute()) {
-        $message = $file_changed ? 'Files updated successfully!' : 'No file changes detected.';
+        $_SESSION['message'] = $file_changed ? 'Saved!' : 'No file changes detected.';
+        $_SESSION['message_type'] = 'success';
     } else {
-        $message = 'Error updating files. Please try again.';
-        error_log(print_r($update_stmt->errorInfo(), true));
+        $_SESSION['message'] = 'Error updating files. Please try again.';
+        $_SESSION['message_type'] = 'error';
     }
 
-    echo "<script>
-        alert('$message');
-        window.location.href = 'form2draftmov.php';
-    </script>";
+    header("Location: form2draftmov.php");
+    exit;
 }
-?>
+?>         

@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>LTIA</title>
   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="css/td_hover.css">
 </head>
 
@@ -747,7 +747,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="modal-dialog modal-dialog-centered"> <!-- Centered the modal -->
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="alertModalLabel">Missing Files</h5>
+                <h5 class="modal-title text-danger" id="alertModalLabel">Missing Files!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Updated close button for Bootstrap 5 -->
             </div>
             <div class="modal-body text-center"> <!-- Centered the content -->
@@ -808,8 +808,38 @@ document.getElementById('confirmSubmit').addEventListener('click', function () {
 });
 </script>
 
+<!--modal for update-->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">
+                    <?php echo $_SESSION['message_type'] === 'success' ? 'Update' : 'Submission Failed'; ?>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p><?php echo htmlspecialchars($_SESSION['message'] ?? ''); ?></p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Main modal -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        <?php if (isset($_SESSION['message'])): ?>
+            var messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+            messageModal.show();
+            <?php unset($_SESSION['message'], $_SESSION['message_type']); ?>
+        <?php endif; ?>
+    });
+</script>
+
+
+<!-- Main modal for pdf viewer   -->
 <div id="large-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-4xl max-h-full">
         <!-- Modal content -->
