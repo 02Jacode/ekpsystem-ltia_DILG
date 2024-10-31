@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../connection.php';
-//  include '../functions.php';
+// include '../functions.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
     header("Location: ../login.php");
@@ -28,6 +28,20 @@ $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
 $stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: []; // Initialize $row as an empty array if no records found
+
+// Fetch rates from the movrate table
+$rate_sql = "SELECT * FROM movrate WHERE barangay = :barangay_id";
+$rate_stmt = $conn->prepare($rate_sql);
+$rate_stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
+$rate_stmt->execute();
+$rate_row = $rate_stmt->fetch(PDO::FETCH_ASSOC) ?: []; // Initialize $rate_row as an empty array if no records found
+
+// Fetch remarks from the movremark table
+$remark_sql = "SELECT * FROM movremark WHERE barangay = :barangay_id";
+$remark_stmt = $conn->prepare($remark_sql);
+$remark_stmt->bindParam(':barangay_id', $_SESSION['barangay_id'], PDO::PARAM_INT);
+$remark_stmt->execute();
+$remark_row = $remark_stmt->fetch(PDO::FETCH_ASSOC) ?: []; // Initialize $remark_row as an empty array if no records found
 
 $file_changed = false; // Flag to track if any files have changed
 
@@ -146,8 +160,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_1a_pdf_rate']) ? $rate_row['IA_1a_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_1a_pdf_remark']) ? $remark_row['IA_1a_pdf_remark'] : 'No remarks'; ?></td>
           </tr>
           <tr>
             <td>b) Sending of Notices and Summons</td>
@@ -158,8 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_1b_pdf_rate']) ? $rate_row['IA_1b_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_1b_pdf_remark']) ? $remark_row['IA_1b_pdf_remark'] : 'No remarks'; ?></td>
           </tr>
           <tr>
                 <td>2. Settlement and Award Period (with at least 10 settled cases within the assessment period)</td>
@@ -177,8 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_2a_pdf_rate']) ? $rate_row['IA_2a_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_2a_pdf_remark']) ? $remark_row['IA_2a_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>b) Conciliation (15 days from initial confrontation with the Pangkat)</td>
@@ -189,8 +203,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No file uploaded</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_2b_pdf_rate']) ? $rate_row['IA_2b_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_2b_pdf_remark']) ? $remark_row['IA_2b_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>c) Conciliation (15 days from initial confrontation with the Pangkat)</td>
@@ -201,8 +215,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_2c_pdf_rate']) ? $rate_row['IA_2c_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_2c_pdf_remark']) ? $remark_row['IA_2c_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>d) Arbitration (within 10 days from the date of the agreement to arbitrate)</td>
@@ -213,8 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No file uploaded</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_2d_pdf_rate']) ? $rate_row['IA_2d_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_2d_pdf_remark']) ? $remark_row['IA_2d_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>e) Conciliation beyond 46 days but not more than 60 days on a clearly meritorious case</td>
@@ -225,8 +239,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IA_2e_pdf_rate']) ? $rate_row['IA_2e_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IA_2e_pdf_remark']) ? $remark_row['IA_2e_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>B. Systematic Maintenance of Records</th>
@@ -249,8 +263,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_1forcities_pdf_rate']) ? $rate_row['IB_1forcities_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_1forcities_pdf_remark']) ? $remark_row['IB_1forcities_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>For Municipalities:</td>
@@ -267,8 +281,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_1aformuni_pdf_rate']) ? $rate_row['IB_1aformuni_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_1aformuni_pdf_remark']) ? $remark_row['IB_1aformuni_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>b. Digital Record Filing</td>
@@ -279,8 +293,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_1bformuni_pdf_rate']) ? $rate_row['IB_1bformuni_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_1bformuni_pdf_remark']) ? $remark_row['IB_1bformuni_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>2. Copies of Minutes of Lupon meetings with attendance sheets and notices</td>
@@ -291,8 +305,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_2_pdf_rate']) ? $rate_row['IB_2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_2_pdf_remark']) ? $remark_row['IB_2_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>3. Copies of reports submitted to the Court and to the DILG on file</td>
@@ -303,8 +317,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_3_pdf_rate']) ? $rate_row['IB_3_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_3_pdf_remark']) ? $remark_row['IB_3_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>4. All records are kept on file in a secured filing cabinet(s)</td>
@@ -315,8 +329,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IB_4_pdf_rate']) ? $rate_row['IB_4_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IB_4_pdf_remark']) ? $remark_row['IB_4_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>C. Timely Submissions to the Court and the DILG</th>
@@ -333,8 +347,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IC_1_pdf_rate']) ? $rate_row['IC_1_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IC_1_pdf_remark']) ? $remark_row['IC_1_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>2. To the DILG (Quarterly)</td>
@@ -345,8 +359,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IC_2_pdf_rate']) ? $rate_row['IC_2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IC_2_pdf_remark']) ? $remark_row['IC_2_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>D. Conduct of monthly meetings for administration of the Katarungang Pambarangay (KP)</th>
@@ -363,8 +377,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['ID_1_pdf_rate']) ? $rate_row['ID_1_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['ID_1_pdf_remark']) ? $remark_row['ID_1_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>2. Minutes of the Meeting</td>
@@ -375,8 +389,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['ID_2_pdf_rate']) ? $rate_row['ID_2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['ID_2_pdf_remark']) ? $remark_row['ID_2_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>II. EFFECTIVENESS IN SECURING THE SETTLEMENT OF INTERPERSONAL DISPUTE OBJECTIVE OF THE KATARUNGANG PAMBARANGAY</th>
@@ -393,8 +407,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIA_pdf_rate']) ? $rate_row['IIA_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIA_pdf_remark']) ? $remark_row['IIA_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>B. Quality of Settlement of Cases</td>
@@ -411,8 +425,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIB_1_pdf_rate']) ? $rate_row['IIB_1_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIB_1_pdf_remark']) ? $remark_row['IIB_1_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>2. Non-recurrence of cases settled</td>
@@ -424,8 +438,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIB_2_pdf_rate']) ? $rate_row['IIB_2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIB_2_pdf_remark']) ? $remark_row['IIB_2_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>C. At least 80% compliance with the terms of settlement or award after the cases have been settled</td>
@@ -436,8 +450,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIC_pdf_rate']) ? $rate_row['IIC_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIC_pdf_remark']) ? $remark_row['IIC_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>III. CREATIVITY AND RESOURCEFULNESS OF THE LUPONG TAGAPAMAYAPA</th>
@@ -455,8 +469,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIA_pdf_rate']) ? $rate_row['IIIA_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIA_pdf_remark']) ? $remark_row['IIIA_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>B. Coordination with Concerned Agencies relating to disputes filed (PNP, DSWD, DILG, DAR, DENR, Office of the Prosecutor, Court, DOJ, CHR, etc.)</td>
@@ -468,8 +482,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIB_pdf_rate']) ? $rate_row['IIIB_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIB_pdf_remark']) ? $remark_row['IIIB_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>C. Sustained information drive to promote Katarungang Pambarangay</td>
@@ -494,8 +508,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_1forcities_pdf_rate']) ? $rate_row['IIIC_1forcities_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_1forcities_pdf_remark']) ? $remark_row['IIIC_1forcities_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>
@@ -510,8 +524,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_1forcities2_pdf_rate']) ? $rate_row['IIIC_1forcities2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_1forcities2_remark']) ? $remark_row['IIIC_1forcities2_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>
@@ -526,8 +540,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_1forcities3_pdf_rate']) ? $rate_row['IIIC_1forcities3_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_1forcities3_pdf_remark']) ? $remark_row['IIIC_1forcities3_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>2. For Municipalities</td>
@@ -548,8 +562,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_2formuni1_pdf_rate']) ? $rate_row['IIIC_2formuni1_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_2formuni1_pdf_remark']) ? $remark_row['IIIC_2formuni1_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>
@@ -564,8 +578,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_2formuni2_pdf_rate']) ? $rate_row['IIIC_2formuni2_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_2formuni2_pdf_remark']) ? $remark_row['IIIC_2formuni2_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>
@@ -580,8 +594,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIIC_2formuni3_pdf_rate']) ? $rate_row['IIIC_2formuni3_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIIC_2formuni3_pdf_remark']) ? $remark_row['IIIC_2formuni3_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>D. KP Training or seminar within the assessment period<br />
@@ -593,8 +607,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IIID_pdf_rate']) ? $rate_row['IIID_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IIID_pdf_remark']) ? $remark_row['IIID_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>IV. AREA OR FACILITY FOR KP ACTIVITIES</th>
@@ -617,8 +631,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IV_forcities_pdf_rate']) ? $rate_row['IV_forcities_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IV_forcities_pdf_remark']) ? $remark_row['IV_forcities_pdf_remark'] : 'No remarks'; ?></td>
             </tr>
               <tr>
                 <td>For Municipalities - KP office or space may be shared or used for other Barangay matters.</td>
@@ -629,8 +643,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['IV_muni_pdf_rate']) ? $rate_row['IV_muni_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['IV_muni_pdf_remark']) ? $remark_row['IV_muni_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <th>V. FINANCIAL OR NON-FINANCIAL SUPPORT</th>
@@ -647,8 +661,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['V_1_pdf_rate']) ? $rate_row['V_1_pdf_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['V_1_pdf_remark']) ? $remark_row['V_1_pdf_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
                 <td>3 From People's Organizations, NGOs or Private Sector</td>
@@ -659,15 +673,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>No MOV Submitted</span>
               <?php endif; ?>
             </td>
-            <td>rate here</td>
-            <td>this is remark</td>
+            <td><?php echo isset($rate_row['threepeoplesorg_rate']) ? $rate_row['threepeoplesorg_rate'] : 'Not rated'; ?></td>
+            <td><?php echo isset($remark_row['threepeoplesorg_remark']) ? $remark_row['threepeoplesorg_remark'] : 'No remarks'; ?></td>
               </tr>
               <tr>
-              <th>Total here</th>
+              <th>Total</th>
                 <td></td>
                 <td>            
             </td>
-            <td>Total here</td>
+            <th><?php echo isset($rate_row['total']) ? $rate_row['total'] : ' '; ?></th>
             <td></td>
               </tr>
             </tbody>
