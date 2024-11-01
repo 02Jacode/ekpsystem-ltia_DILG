@@ -153,7 +153,7 @@ $(document).ready(function () {
 
                 // Handle each PDF file from the returned data
                 var fileTypes = [
-                'IA_1a', 'IA_1b', 'IA_2a', 'IA_2b', 'IA_2c', 'IA_2d', 'IA_2e', 'IB_1forcities', 'IB_1aformuni', 'IB_1bformuni', 'IB_2', 'IB_3', 'IB_4', 'IC_1', 'IC_2', 'ID_1', 'ID_2', 'IIA', 'IIB_1', 'IIB_2', 'IIC', 'IIIA', 'IIIB', 'IIIC_1forcities', 'IIIC_1forcities2', 'IIIC_1forcities3', 'IIIC_2formuni1', 'IIIC_2formuni2', 'IIIC_2formuni3', 'IIID', 'IV_forcities', 'IV_muni', 'V_1', 'threepeoplesorg'
+                'IA_1a', 'IA_1b', 'IA_2a', 'IA_2b', 'IA_2c', 'IA_2d', 'IA_2e', 'IB_1forcities', 'IB_1aformuni', 'IB_1bformuni', 'IB_2', 'IB_3', 'IB_4', 'IC_1', 'IC_2', 'ID_1', 'ID_2', 'IIA', 'IIB_1', 'IIB_2', 'IIC', 'IIIA', 'IIIB', 'IIIC_1forcities', 'IIIC_1forcities2', 'IIIC_1forcities3', 'IIIC_2formuni1', 'IIIC_2formuni2', 'IIIC_2formuni3', 'IIID', 'IV_forcities', 'IV_muni', 'V_1', 'threpplesorg'
                 ];
 
                 // Clear previous file columns
@@ -167,7 +167,7 @@ $(document).ready(function () {
                     if (data[fileKey]) {
                         var filePath = 'movfolder/' + data[fileKey];
                         $('.view-pdf[data-type="' + type + '"]').attr('data-file', filePath).show();
-                        fileColumn.html('<button type="button" class="btn btn-primary view-pdf" data-type="' + type + '" data-file="' + filePath + '">View</button>'); // Add view button to the file column
+                        fileColumn.html('<button type="button" style="background-color: #000033;" class="btn btn-primary view-pdf" data-type="' + type + '" data-file="' + filePath + '">View</button>'); // Add view button to the file column
                     } else {
                         fileColumn.html('<div class="alert alert-warning mb-0">No uploaded file</div>');
                     }
@@ -333,6 +333,7 @@ $(document).ready(function () {
             $('input[name="IV_forcities_pdf_rate"]').val('');
             $('input[name="IV_muni_pdf_rate"]').val('');
             $('input[name="V_1_pdf_rate"]').val('');
+            $('input[name="threepeoplesorg_rate"]').val('');
         }
     });
 
@@ -404,6 +405,7 @@ $(document).ready(function () {
               </ul>
             </div>
           </div>
+          
           <h2 class="text-left text-2xl font-semibold">FORM 1</h2>
           <div class="form-group mt-4">
                     <label for="barangay_select" class="block text-lg font-medium text-gray-700">Select Barangay</label>
@@ -1055,8 +1057,8 @@ $(document).ready(function () {
               </tr>
               <tr>
                 <td>3 From People's Organizations, NGOs or Private Sector</td>
-                <td>1</td>
-                <td class="file-column" data-type="threepeoplesorg">
+              <td>2</td>
+                <td class="file-column" data-type="threpplesorg">
         <span class="alert alert-info">Select barangay</span> <!-- Default message if no barangay selected -->
     </td>
             <td><input type="number" value="" name="threepeoplesorg_rate" placeholder="Ratings"></td>

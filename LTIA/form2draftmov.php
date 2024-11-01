@@ -17,7 +17,7 @@ $allowed_columns = [
     'IIIB_pdf_File', 'IIIC_1forcities_pdf_File', 'IIIC_1forcities2_pdf_File',
     'IIIC_1forcities3_pdf_File', 'IIIC_2formuni1_pdf_File', 'IIIC_2formuni2_pdf_File',
     'IIIC_2formuni3_pdf_File', 'IIID_pdf_File', 'IV_forcities_pdf_File', 'IV_muni_pdf_File',
-    'V_1_pdf_File', 'threepeoplesorg'
+    'V_1_pdf_File', 'threepeoplesorg_File'
 ];
 
 // Fetch uploaded files from the database
@@ -684,12 +684,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </tr>
               <tr>
                 <td>3 From People's Organizations, NGOs or Private Sector</td>
-                <td><input type="file" id="3peoplesorg" name="threepeoplesorg" accept=".pdf" onchange="validateFileType(this)" />
-                <input type="hidden" name="threepeoplesorg" id="threepeoplesorg" value="<?php echo $row['threepeoplesorg']; ?>">
+                <td><input type="file" id="3peoplesorg" name="threepeoplesorg_File" accept=".pdf" onchange="validateFileType(this)" />
+                <input type="hidden" name="threepeoplesorg_File" id="threepeoplesorg_File" value="<?php echo $row['threepeoplesorg_File']; ?>">
             </td>
                 <td>
-                <?php if (!empty($row['threepeoplesorg'])) : ?>
-            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['threepeoplesorg'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['threepeoplesorg'], ENT_QUOTES, 'UTF-8'); ?>)</button>
+                <?php if (!empty($row['threepeoplesorg_File'])) : ?>
+            <button type="button" class="btn btn-primary view-pdf" style="background-color: #00008B;" data-file="movfolder/<?php echo htmlspecialchars($row['threepeoplesorg_File'], ENT_QUOTES, 'UTF-8'); ?>">(<?php echo htmlspecialchars($row['threepeoplesorg_File'], ENT_QUOTES, 'UTF-8'); ?>)</button>
             <?php else : ?>
               <span>No file uploaded</span>
             <?php endif; ?>

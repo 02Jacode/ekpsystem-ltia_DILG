@@ -17,7 +17,7 @@ $allowed_columns = [
     'IIIB_pdf_File', 'IIIC_1forcities_pdf_File', 'IIIC_1forcities2_pdf_File',
     'IIIC_1forcities3_pdf_File', 'IIIC_2formuni1_pdf_File', 'IIIC_2formuni2_pdf_File',
     'IIIC_2formuni3_pdf_File', 'IIID_pdf_File', 'IV_forcities_pdf_File', 'IV_muni_pdf_File',
-    'V_1_pdf_File', 'threepeoplesorg'
+    'V_1_pdf_File', 'threepeoplesorg_File'
 ];
 
 // Fetch existing file data
